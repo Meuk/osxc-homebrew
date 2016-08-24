@@ -1,0 +1,16 @@
+---
+- name: assert cask presence
+  stat: path={{ install_dir }}/Library/Taps/caskroom/homebrew-cask
+  register: cask_installed
+
+- name: tap the cask repository
+  homebrew_tap: tap=caskroom/cask state=present
+  when: cask_installed.stat.exists == false
+
+- name: add new cask opts to common env
+  lineinfile: dest=/Users/{{ item }}/.common_env
+              regexp='^export HOMEBREW_CASK_OPTS'
+              line='export HOMEBREW_CASK_OPTS="--appdir=/Applications"'
+              state=present
+              owner={{ item }}
+  with_items: affected_users
