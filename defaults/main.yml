@@ -2,6 +2,6 @@
 installation_method: script
 clone_dir: "/Users/{{ ansible_user_id}}/src/github.com/Homebrew/homebrew"
 install_dir: "/usr/local"
-install_cask: yes
+install_cask: no
 affected_users:
 - "{{ ansible_user_id }}"

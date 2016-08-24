@@ -1,6 +1,6 @@
 ---
 galaxy_info:
-  author: Robin Ricard
+  author: Robin Ricard, fixes by Patrick van Oostrom
   description: Ensure that homebrew is installed on a Mac
   company: osxc
   license: MIT
